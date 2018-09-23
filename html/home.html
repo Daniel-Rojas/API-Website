@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TravelGuide | Home</title>
+
+	<!-- Compiled and minified CSS -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
+</head>
+<body>
+	<nav class="transparent z-depth-0">
+		<div class="nav-wrapper">
+			<a href="../index.html" class="brand-logo">Travel Guide</a>
+			<a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="../html/home.html">Home</a></li>
+				<li><a href="../html/about.html">About</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<ul class="sidenav grey darken-1" id="mobile-demo">
+		<li><a class="white-text" href="../html/home.html">Home</a></li>
+		<li><a class="white-text" href="../html/about.html">About</a></li>
+	</ul>
+
+	<div class="home-form-background">
+		<div class="home-form">
+			<h2>Enter Current City</h2>
+			<p>
+				Enter the city you are currently in and the date you plan to travel. This search will pull up the popular flight routes from that city.
+        	</p>
+			<label class="form-label">Select City</label>
+			<div class="input-field col s12 black-text">
+				<select>
+					<option value="ATL">Atlanta (ATL)</option>
+					<option value="AUS">Austin (AUS)</option>
+					<option value="BOS">Boston (BOS)</option>
+					<option value="CLE">Cleveland (CLE)</option>
+					<option value="DFW">Dallas (DFW)</option>
+					<option value="DEN">Denver (DEN)</option>
+					<option value="DTW">Detroit (DTW)</option>
+					<option value="IAH">Houston (IAH)</option>
+					<option value="LAS">Las Vegas (LAS)</option>
+					<option value="LAX">Los Angeles (LAX)</option>
+					<option value="MIA">Miami (MIA)</option>
+					<option value="JFK">New York (JFK)</option>
+					<option value="PHL">Philadelphia (PHL)</option>
+					<option value="SEA">Seattle (SEA)</option>
+					<option value="STL">St. Louis (STL)</option>
+					<option value="IAD">Washington D.C. (IAD)</option>
+				</select>
+			</div>
+			<label class="form-label ">Select Destination</label> 
+			<div class="input-field col s12 black-text">
+				<select class="">
+					<option value="ATL">Atlanta (ATL)</option>
+					<option value="AUS">Austin (AUS)</option>
+					<option value="BOS">Boston (BOS)</option>
+					<option value="CLE">Cleveland (CLE)</option>
+					<option value="DFW">Dallas (DFW)</option>
+					<option value="DEN">Denver (DEN)</option>
+					<option value="DTW">Detroit (DTW)</option>
+					<option value="IAH">Houston (IAH)</option>
+					<option value="LAS">Las Vegas (LAS)</option>
+					<option value="LAX">Los Angeles (LAX)</option>
+					<option value="MIA">Miami (MIA)</option>
+					<option value="JFK">New York (JFK)</option>
+					<option value="PHL">Philadelphia (PHL)</option>
+					<option value="SEA">Seattle (SEA)</option>
+					<option value="STL">St. Louis (STL)</option>
+					<option value="IAD">Washington D.C. (IAD)</option>
+				</select>
+			</div>
+			<label class="form-label ">Select Departure Date</label>
+			<input type="text" class="datepicker">
+		</div>
+	</div>
+
+    <!-- Compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../javascript/home.js" ></script>
+</body>
+</html>

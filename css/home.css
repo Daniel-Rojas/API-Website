@@ -1,0 +1,44 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	background-image: url("../images/city_background.jpg");
+  	background-repeat: no-repeat;
+  	background-position: top left;
+  	background-attachment: fixed;
+  	background-size: cover;
+}
+
+.nav-wrapper {
+	margin-right: 100px;
+	margin-left: 100px;
+}
+
+#nav-mobile {
+	margin-right: 100px;
+	margin-left: left 100px;
+}
+
+.home-form-background {
+	margin: 10% 15%;
+	border-radius: 5px;
+	background-color: white;
+	opacity: 0.85;
+}
+
+.home-form {
+	padding: 10px 10%;
+}
+
+.form-label {
+	font-size: 12px;
+	padding-bottom: 0px;
+	margin-bottom: 0;
+	color: black;
+}
+
+.input-field {
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
