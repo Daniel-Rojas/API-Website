@@ -1,7 +1,3 @@
-html, body {
-	height: 100%;
-}
-
 body {
 	background-image: url("../images/cover_page.jpg");
   	background-repeat: no-repeat;
@@ -10,30 +6,13 @@ body {
   	background-size: cover;
 }
 
-.nav-wrapper {
-	margin-right: 100px;
-	margin-left: 100px;
-}
-
-#nav-mobile {
-	margin-right: 100px;
-	margin-left: left 100px;
-}
-
-.cover-center {
-	margin: 15% auto;
+#cover-body {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
 	text-align: center;
 }
 
-.cover-footer {
-	font-size: 16px;
-	font-weight: bold;
-	color: #212121;
-	margin: auto;
-	vertical-align: bottom;
-	text-align: center;
-}
-
-.name {
-	color: white;
+#start-button {
+	margin-top: 20px;
 }

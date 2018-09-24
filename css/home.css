@@ -1,7 +1,3 @@
-html, body {
-	height: 100%;
-}
-
 body {
 	background-image: url("../images/city_background.jpg");
   	background-repeat: no-repeat;
@@ -10,28 +6,28 @@ body {
   	background-size: cover;
 }
 
-.nav-wrapper {
-	margin-right: 100px;
-	margin-left: 100px;
-}
-
-#nav-mobile {
-	margin-right: 100px;
-	margin-left: left 100px;
-}
-
-.home-form-background {
-	margin: 10% 15%;
+#jumbotron {
 	border-radius: 5px;
 	background-color: white;
-	opacity: 0.85;
+	opacity: 0.90;
 }
 
-.home-form {
-	padding: 10px 10%;
+#home-form {
+	text-align: center;
+	padding: 5% 10%;
+}
+
+#form-header {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+.form-header {
+	text-align: left;
 }
 
 .form-label {
+	text-align: left;
 	font-size: 12px;
 	padding-bottom: 0px;
 	margin-bottom: 0;
@@ -40,5 +36,8 @@ body {
 
 .input-field {
 	margin-top: 0px;
-	margin-bottom: 30px;
+	margin-bottom: 0px;
+}
+
+#submit-button {
 }

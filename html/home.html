@@ -2,85 +2,241 @@
 <html>
 <head>
 	<title>TravelGuide | Home</title>
-
 	<!-- Compiled and minified CSS -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/basic.css">
     <link rel="stylesheet" type="text/css" href="../css/home.css">
 </head>
 <body>
-	<nav class="transparent z-depth-0">
-		<div class="nav-wrapper">
-			<a href="../index.html" class="brand-logo">Travel Guide</a>
-			<a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="../html/home.html">Home</a></li>
-				<li><a href="../html/about.html">About</a></li>
-			</ul>
-		</div>
-	</nav>
-
-	<ul class="sidenav grey darken-1" id="mobile-demo">
-		<li><a class="white-text" href="../html/home.html">Home</a></li>
-		<li><a class="white-text" href="../html/about.html">About</a></li>
-	</ul>
-
-	<div class="home-form-background">
-		<div class="home-form">
-			<h2>Enter Current City</h2>
-			<p>
-				Enter the city you are currently in and the date you plan to travel. This search will pull up the popular flight routes from that city.
-        	</p>
-			<label class="form-label">Select City</label>
-			<div class="input-field col s12 black-text">
-				<select>
-					<option value="ATL">Atlanta (ATL)</option>
-					<option value="AUS">Austin (AUS)</option>
-					<option value="BOS">Boston (BOS)</option>
-					<option value="CLE">Cleveland (CLE)</option>
-					<option value="DFW">Dallas (DFW)</option>
-					<option value="DEN">Denver (DEN)</option>
-					<option value="DTW">Detroit (DTW)</option>
-					<option value="IAH">Houston (IAH)</option>
-					<option value="LAS">Las Vegas (LAS)</option>
-					<option value="LAX">Los Angeles (LAX)</option>
-					<option value="MIA">Miami (MIA)</option>
-					<option value="JFK">New York (JFK)</option>
-					<option value="PHL">Philadelphia (PHL)</option>
-					<option value="SEA">Seattle (SEA)</option>
-					<option value="STL">St. Louis (STL)</option>
-					<option value="IAD">Washington D.C. (IAD)</option>
-				</select>
+	<div class="header">
+		<nav class="transparent z-depth-0">
+			<div class="nav-wrapper">
+				<a href="../index.html" class="brand-logo">Travel Guide</a>
+				<a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="../html/home.html">Home</a></li>
+					<li><a href="../html/about.html">About</a></li>
+				</ul>
 			</div>
-			<label class="form-label ">Select Destination</label> 
-			<div class="input-field col s12 black-text">
-				<select class="">
-					<option value="ATL">Atlanta (ATL)</option>
-					<option value="AUS">Austin (AUS)</option>
-					<option value="BOS">Boston (BOS)</option>
-					<option value="CLE">Cleveland (CLE)</option>
-					<option value="DFW">Dallas (DFW)</option>
-					<option value="DEN">Denver (DEN)</option>
-					<option value="DTW">Detroit (DTW)</option>
-					<option value="IAH">Houston (IAH)</option>
-					<option value="LAS">Las Vegas (LAS)</option>
-					<option value="LAX">Los Angeles (LAX)</option>
-					<option value="MIA">Miami (MIA)</option>
-					<option value="JFK">New York (JFK)</option>
-					<option value="PHL">Philadelphia (PHL)</option>
-					<option value="SEA">Seattle (SEA)</option>
-					<option value="STL">St. Louis (STL)</option>
-					<option value="IAD">Washington D.C. (IAD)</option>
-				</select>
-			</div>
-			<label class="form-label ">Select Departure Date</label>
-			<input type="text" class="datepicker">
-		</div>
+		</nav>
+
+		<ul class="sidenav grey darken-1" id="mobile-demo">
+			<li><a class="white-text" href="../html/home.html">Home</a></li>
+			<li><a class="white-text" href="../html/about.html">About</a></li>
+		</ul>
 	</div>
+
+	<div class="body">
+		<div id="jumbotron" class="container">
+			<div id="home-form">
+				<h2 id="form-header" class="form-header">Enter Current City</h2>
+				<p class="form-header">
+					Enter the city you are currently in and the date you plan to travel. This search will pull up the popular flight routes from that city.
+	        	</p>
+	        	<div class="row">
+	        		<div class="lable-and-input-field col sm12 m12 l6">
+	        			<label class="form-label black-text">Select City</label>
+	        			<div class="input-field">
+							<select>
+								<option value="ATL">Atlanta (ATL)</option>
+								<option value="AUS">Austin (AUS)</option>
+								<option value="BOS">Boston (BOS)</option>
+								<option value="CLE">Cleveland (CLE)</option>
+								<option value="DFW">Dallas (DFW)</option>
+								<option value="DEN">Denver (DEN)</option>
+								<option value="DTW">Detroit (DTW)</option>
+								<option value="IAH">Houston (IAH)</option>
+								<option value="LAS">Las Vegas (LAS)</option>
+								<option value="LAX">Los Angeles (LAX)</option>
+								<option value="MIA">Miami (MIA)</option>
+								<option value="JFK">New York (JFK)</option>
+								<option value="PHL">Philadelphia (PHL)</option>
+								<option value="SEA">Seattle (SEA)</option>
+								<option value="STL">St. Louis (STL)</option>
+								<option value="IAD">Washington D.C. (IAD)</option>
+							</select>
+						</div>
+	        		</div>
+	        		<div class="lable-and-input-field col sm12 m12 l6">
+	        			<label class="form-label ">Select Destination</label> 
+						<div class="input-field">
+							<select>
+								<option value="ATL">Atlanta (ATL)</option>
+								<option value="AUS">Austin (AUS)</option>
+								<option value="BOS">Boston (BOS)</option>
+								<option value="CLE">Cleveland (CLE)</option>
+								<option value="DFW">Dallas (DFW)</option>
+								<option value="DEN">Denver (DEN)</option>
+								<option value="DTW">Detroit (DTW)</option>
+								<option value="IAH">Houston (IAH)</option>
+								<option value="LAS">Las Vegas (LAS)</option>
+								<option value="LAX">Los Angeles (LAX)</option>
+								<option value="MIA">Miami (MIA)</option>
+								<option value="JFK">New York (JFK)</option>
+								<option value="PHL">Philadelphia (PHL)</option>
+								<option value="SEA">Seattle (SEA)</option>
+								<option value="STL">St. Louis (STL)</option>
+								<option value="IAD">Washington D.C. (IAD)</option>
+							</select>
+						</div>
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	   	        	<div class="form-dates col sm6 m6 l6">
+	   	        		<p>Enter Departure Date</p>
+			        	<div class="row">
+							<div class="lable-and-input-field col sm3 m3 l3">
+			        			<label class="form-label">Day</label> 
+								<div class="input-field">
+									<select>
+										<option value="01">1</option>
+										<option value="02">2</option>
+										<option value="03">3</option>
+										<option value="04">4</option>
+										<option value="05">5</option>
+										<option value="06">6</option>
+										<option value="07">7</option>
+										<option value="08">8</option>
+										<option value="09">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option>
+										<option value="23">23</option>
+										<option value="24">24</option>
+										<option value="25">25</option>
+										<option value="26">26</option>
+										<option value="27">27</option>
+										<option value="28">28</option>
+										<option value="29">29</option>
+										<option value="30">30</option>
+										<option value="31">31</option>
+									</select>
+								</div>
+			        		</div>
+			        		<div class="lable-and-input-field col sm5 m5 l5">
+			        			<label class="form-label">Month</label> 
+								<div class="input-field">
+									<select>
+										<option value="01">January</option>
+										<option value="02">February</option>
+										<option value="03">March</option>
+										<option value="04">April</option>
+										<option value="05">May</option>
+										<option value="06">June</option>
+										<option value="07">July</option>
+										<option value="08">August</option>
+										<option value="09">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>
+									</select>
+								</div>
+			        		</div>
+			        		<div class="lable-and-input-field col sm4 m4 l4">
+			        			<label class="form-label">Year</label> 
+								<div class="input-field">
+									<select>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+									</select>
+								</div>
+			        		</div>
+						</div>
+		        	</div>
+					<div class="form-dates col sm6 m6 l6">
+		        		<p>Enter Departure Date</p>
+			        	<div class="row">
+							<div class="lable-and-input-field col sm3 m3 l3">
+			        			<label class="form-label">Day</label> 
+								<div class="input-field">
+									<select>
+										<option value="01">1</option>
+										<option value="02">2</option>
+										<option value="03">3</option>
+										<option value="04">4</option>
+										<option value="05">5</option>
+										<option value="06">6</option>
+										<option value="07">7</option>
+										<option value="08">8</option>
+										<option value="09">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option>
+										<option value="23">23</option>
+										<option value="24">24</option>
+										<option value="25">25</option>
+										<option value="26">26</option>
+										<option value="27">27</option>
+										<option value="28">28</option>
+										<option value="29">29</option>
+										<option value="30">30</option>
+										<option value="31">31</option>
+									</select>
+								</div>
+			        		</div>
+			        		<div class="lable-and-input-field col sm5 m5 l5">
+			        			<label class="form-label">Month</label> 
+								<div class="input-field">
+									<select>
+										<option value="01">January</option>
+										<option value="02">February</option>
+										<option value="03">March</option>
+										<option value="04">April</option>
+										<option value="05">May</option>
+										<option value="06">June</option>
+										<option value="07">July</option>
+										<option value="08">August</option>
+										<option value="09">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>
+									</select>
+								</div>
+			        		</div>
+			        		<div class="lable-and-input-field col sm4 m4 l4">
+			        			<label class="form-label">Year</label> 
+								<div class="input-field">
+									<select>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+									</select>
+								</div>
+			        		</div>
+						</div>
+		        	</div>     		
+	        	</div>
+
+	        	<a id="submit-button" class="waves-effect waves-light btn-large blue" href="../html/home.html">Submit</a>
+			</div>
+		</div>
+	</div>	
 
     <!-- Compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../materialize/javascript/materialize.min.js"></script>
     <script src="../javascript/home.js" ></script>
 </body>
 </html>
