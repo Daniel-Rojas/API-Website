@@ -28,9 +28,17 @@ body {
 
 .form-label {
 	text-align: left;
-	font-size: 12px;
+	font-size: 14px;
 	padding-bottom: 0px;
 	margin-bottom: 0;
+	color: black;
+}
+
+.date-label {
+	text-align: left;
+	font-size: 12px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
 	color: black;
 }
 

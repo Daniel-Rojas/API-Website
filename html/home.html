@@ -29,16 +29,16 @@
 
 	<div class="body">
 		<div id="jumbotron" class="container">
-			<div id="home-form">
+			<form name="input-form" id="home-form" action="./result.html" onsubmit="return validateForm()" method="get">
 				<h2 id="form-header" class="form-header">Enter Current City</h2>
 				<p class="form-header">
 					Enter the city you are currently in and the date you plan to travel. This search will pull up the popular flight routes from that city.
 	        	</p>
 	        	<div class="row">
 	        		<div class="lable-and-input-field col sm12 m12 l6">
-	        			<label class="form-label black-text">Select City</label>
+	        			<p class="form-label black-text">Select City</p>
 	        			<div class="input-field">
-							<select>
+							<select name="current-city">
 								<option value="ATL">Atlanta (ATL)</option>
 								<option value="AUS">Austin (AUS)</option>
 								<option value="BOS">Boston (BOS)</option>
@@ -59,9 +59,9 @@
 						</div>
 	        		</div>
 	        		<div class="lable-and-input-field col sm12 m12 l6">
-	        			<label class="form-label ">Select Destination</label> 
+	        			<p class="form-label ">Select Destination</p> 
 						<div class="input-field">
-							<select>
+							<select name="destination-city">
 								<option value="ATL">Atlanta (ATL)</option>
 								<option value="AUS">Austin (AUS)</option>
 								<option value="BOS">Boston (BOS)</option>
@@ -84,12 +84,12 @@
 	        	</div>
 	        	<div class="row">
 	   	        	<div class="form-dates col sm6 m6 l6">
-	   	        		<p>Enter Departure Date</p>
+	   	        		<p class="form-label">Enter Departure Date</p>
 			        	<div class="row">
 							<div class="lable-and-input-field col sm3 m3 l3">
-			        			<label class="form-label">Day</label> 
+			        			<p class="date-label">Day</p> 
 								<div class="input-field">
-									<select>
+									<select name="departure-day">
 										<option value="01">1</option>
 										<option value="02">2</option>
 										<option value="03">3</option>
@@ -125,9 +125,9 @@
 								</div>
 			        		</div>
 			        		<div class="lable-and-input-field col sm5 m5 l5">
-			        			<label class="form-label">Month</label> 
-								<div class="input-field">
-									<select>
+			        			<p class="form-label">Month</p> 
+								<div class="date-field">
+									<select name="departure-month">
 										<option value="01">January</option>
 										<option value="02">February</option>
 										<option value="03">March</option>
@@ -144,9 +144,9 @@
 								</div>
 			        		</div>
 			        		<div class="lable-and-input-field col sm4 m4 l4">
-			        			<label class="form-label">Year</label> 
+			        			<p class="date-label">Year</p> 
 								<div class="input-field">
-									<select>
+									<select name="departure-year">
 										<option value="2017">2017</option>
 										<option value="2018">2018</option>
 										<option value="2019">2019</option>
@@ -156,12 +156,12 @@
 						</div>
 		        	</div>
 					<div class="form-dates col sm6 m6 l6">
-		        		<p>Enter Departure Date</p>
+		        		<p class="form-label">Enter Return Date</p>
 			        	<div class="row">
 							<div class="lable-and-input-field col sm3 m3 l3">
-			        			<label class="form-label">Day</label> 
+			        			<p class="date-label">Day</p> 
 								<div class="input-field">
-									<select>
+									<select name="return-day">
 										<option value="01">1</option>
 										<option value="02">2</option>
 										<option value="03">3</option>
@@ -197,9 +197,9 @@
 								</div>
 			        		</div>
 			        		<div class="lable-and-input-field col sm5 m5 l5">
-			        			<label class="form-label">Month</label> 
+			        			<p class="date-label">Month</p> 
 								<div class="input-field">
-									<select>
+									<select name="return-month">
 										<option value="01">January</option>
 										<option value="02">February</option>
 										<option value="03">March</option>
@@ -216,9 +216,9 @@
 								</div>
 			        		</div>
 			        		<div class="lable-and-input-field col sm4 m4 l4">
-			        			<label class="form-label">Year</label> 
+			        			<p class="date-label">Year</p> 
 								<div class="input-field">
-									<select>
+									<select name="return-year">
 										<option value="2017">2017</option>
 										<option value="2018">2018</option>
 										<option value="2019">2019</option>
@@ -228,9 +228,9 @@
 						</div>
 		        	</div>     		
 	        	</div>
-
-	        	<a id="submit-button" class="waves-effect waves-light btn-large blue" href="../html/home.html">Submit</a>
-			</div>
+	        	<p class="red-text" id="validationMessage">test</p>
+	        	<button type="submit" id="submit-button" class="btn waves-effect waves-light btn-large blue">Submit</a>
+			</form>
 		</div>
 	</div>	
 
