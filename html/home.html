@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>TravelGuide | Home</title>
 	<!-- Compiled and minified CSS -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/basic.css">
-    <link rel="stylesheet" type="text/css" href="../css/home.css">
+	<link rel="stylesheet" type="text/css" href="../css/home.css">
 </head>
+
 <body>
 	<div class="header">
 		<nav class="transparent z-depth-0">
@@ -29,15 +31,16 @@
 
 	<div class="body">
 		<div id="jumbotron" class="container">
-			<form name="input-form" id="home-form" action="./result.html" onsubmit="return validateForm()" method="get">
+			<form name="input-form" id="home-form" action="./result.html" onsubmit="return submitForm()" method="get">
 				<h2 id="form-header" class="form-header">Enter Current City</h2>
 				<p class="form-header">
-					Enter the city you are currently in and the date you plan to travel. This search will pull up the popular flight routes from that city.
-	        	</p>
-	        	<div class="row">
-	        		<div class="lable-and-input-field col sm12 m12 l6">
-	        			<p class="form-label black-text">Select City</p>
-	        			<div class="input-field">
+					Enter the city you are currently in and the date you plan to travel. This search will pull up the popular flight
+					routes from that city.
+				</p>
+				<div class="row">
+					<div class="lable-and-input-field col sm12 m12 l6">
+						<p class="form-label black-text">Select City</p>
+						<div class="input-field">
 							<select name="current-city">
 								<option value="ATL">Atlanta (ATL)</option>
 								<option value="AUS">Austin (AUS)</option>
@@ -57,9 +60,9 @@
 								<option value="IAD">Washington D.C. (IAD)</option>
 							</select>
 						</div>
-	        		</div>
-	        		<div class="lable-and-input-field col sm12 m12 l6">
-	        			<p class="form-label ">Select Destination</p> 
+					</div>
+					<div class="lable-and-input-field col sm12 m12 l6">
+						<p class="form-label ">Select Destination</p>
 						<div class="input-field">
 							<select name="destination-city">
 								<option value="ATL">Atlanta (ATL)</option>
@@ -80,14 +83,14 @@
 								<option value="IAD">Washington D.C. (IAD)</option>
 							</select>
 						</div>
-	        		</div>
-	        	</div>
-	        	<div class="row">
-	   	        	<div class="form-dates col sm6 m6 l6">
-	   	        		<p class="form-label">Enter Departure Date</p>
-			        	<div class="row">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-dates col sm6 m6 l6">
+						<p class="form-label">Enter Departure Date</p>
+						<div class="row">
 							<div class="lable-and-input-field col sm3 m3 l3">
-			        			<p class="date-label">Day</p> 
+								<p class="date-label">Day</p>
 								<div class="input-field">
 									<select name="departure-day">
 										<option value="01">1</option>
@@ -123,9 +126,9 @@
 										<option value="31">31</option>
 									</select>
 								</div>
-			        		</div>
-			        		<div class="lable-and-input-field col sm5 m5 l5">
-			        			<p class="form-label">Month</p> 
+							</div>
+							<div class="lable-and-input-field col sm5 m5 l5">
+								<p class="form-label">Month</p>
 								<div class="date-field">
 									<select name="departure-month">
 										<option value="01">January</option>
@@ -142,9 +145,9 @@
 										<option value="12">December</option>
 									</select>
 								</div>
-			        		</div>
-			        		<div class="lable-and-input-field col sm4 m4 l4">
-			        			<p class="date-label">Year</p> 
+							</div>
+							<div class="lable-and-input-field col sm4 m4 l4">
+								<p class="date-label">Year</p>
 								<div class="input-field">
 									<select name="departure-year">
 										<option value="2017">2017</option>
@@ -152,14 +155,14 @@
 										<option value="2019">2019</option>
 									</select>
 								</div>
-			        		</div>
+							</div>
 						</div>
-		        	</div>
+					</div>
 					<div class="form-dates col sm6 m6 l6">
-		        		<p class="form-label">Enter Return Date</p>
-			        	<div class="row">
+						<p class="form-label">Enter Return Date</p>
+						<div class="row">
 							<div class="lable-and-input-field col sm3 m3 l3">
-			        			<p class="date-label">Day</p> 
+								<p class="date-label">Day</p>
 								<div class="input-field">
 									<select name="return-day">
 										<option value="01">1</option>
@@ -195,9 +198,9 @@
 										<option value="31">31</option>
 									</select>
 								</div>
-			        		</div>
-			        		<div class="lable-and-input-field col sm5 m5 l5">
-			        			<p class="date-label">Month</p> 
+							</div>
+							<div class="lable-and-input-field col sm5 m5 l5">
+								<p class="date-label">Month</p>
 								<div class="input-field">
 									<select name="return-month">
 										<option value="01">January</option>
@@ -214,9 +217,9 @@
 										<option value="12">December</option>
 									</select>
 								</div>
-			        		</div>
-			        		<div class="lable-and-input-field col sm4 m4 l4">
-			        			<p class="date-label">Year</p> 
+							</div>
+							<div class="lable-and-input-field col sm4 m4 l4">
+								<p class="date-label">Year</p>
 								<div class="input-field">
 									<select name="return-year">
 										<option value="2017">2017</option>
@@ -224,19 +227,20 @@
 										<option value="2019">2019</option>
 									</select>
 								</div>
-			        		</div>
+							</div>
 						</div>
-		        	</div>     		
-	        	</div>
-	        	<p class="red-text" id="validationMessage">test</p>
-	        	<button type="submit" id="submit-button" class="btn waves-effect waves-light btn-large blue">Submit</a>
+					</div>
+				</div>
+				<p class="red-text" id="validation-message"></p>
+				<button type="submit" id="submit-button" class="btn waves-effect waves-light btn-large blue">Submit</a>
 			</form>
 		</div>
-	</div>	
+	</div>
 
-    <!-- Compiled and minified JavaScript -->
+	<!-- Compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../materialize/javascript/materialize.min.js"></script>
-    <script src="../javascript/home.js" ></script>
+	<script src="../materialize/javascript/materialize.min.js"></script>
+	<script src="../javascript/home.js"></script>
 </body>
+
 </html>
