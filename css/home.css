@@ -1,51 +1,48 @@
 body {
-	background-image: url("../images/city_background.jpg");
-  	background-repeat: no-repeat;
-  	background-position: top left;
-  	background-attachment: fixed;
-  	background-size: cover;
+  background-image: url("../images/city_background.jpg");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #jumbotron {
-	border-radius: 5px;
-	background-color: white;
-	opacity: 0.90;
+  border-radius: 5px;
+  background-color: white;
+  opacity: 0.9;
 }
 
 #home-form {
-	text-align: center;
-	padding: 5% 10%;
+  text-align: center;
+  padding: 5% 10%;
 }
 
 #form-header {
-	padding-top: 0px;
-	margin-top: 0px;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 .form-header {
-	text-align: left;
+  text-align: left;
 }
 
 .form-label {
-	text-align: left;
-	font-size: 14px;
-	padding-bottom: 0px;
-	margin-bottom: 0;
-	color: black;
+  text-align: left;
+  font-size: 14px;
+  padding-bottom: 0px;
+  margin-bottom: 0;
+  color: black;
 }
 
 .date-label {
-	text-align: left;
-	font-size: 12px;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-	color: black;
+  text-align: left;
+  font-size: 12px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  color: black;
 }
 
 .input-field {
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
-#submit-button {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
