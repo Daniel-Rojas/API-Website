@@ -1,10 +1,26 @@
 $(document).ready(function() {
+  $("select").formSelect();
+  $(".parallax").parallax();
+
   let userData = new UserData();
   userData.getData();
-  let currentPin = GooglePin(userData.currentCity);
 
-  let map = new GoogleMap();
-  map.loadMap();
+  document.getElementById("current-city").innerHTML += userData.currentCity;
+
+  let currentMap = new GoogleMap("current-city-map", {
+    lat: -34.397,
+    lng: 150.644
+  });
+  let currentPin = new GooglePin(userData.currentCity);
+  currentPin.getGeocodingInfo();
+  currentMap.addPin(currentPin);
+  currentMap.map.setCenter(currentPin.position);
+
+  /*let destinationPin = new GooglePin(userData.destinationCity);
+  destinationPin.getGeocodingInfo();
+  let destinationMap = new GoogleMap();
+  destinationMap.loadMap();
+  destinationMap.addPin(destinationPin);*/
 });
 
 class UserData {
@@ -16,16 +32,28 @@ class UserData {
   }
 
   getData() {
-    this.currentCity = getUrlParameter("current-city");
-    this.destinationCity = getUrlParameter("destination-city");
-    this.departureDate = getUrlParameter("departure-date");
-    this.returnDate = getUrlParameter("return-date");
+    this.currentCity = this.getUrlParameter("current-city");
+    this.destinationCity = this.getUrlParameter("destination-city");
+
+    let departureDay = this.getUrlParameter("departure-day");
+    let departureMonth = this.getUrlParameter("departure-month");
+    let departureYear = this.getUrlParameter("departure-year");
+    this.departureDate = new FlightDate(
+      departureDay,
+      departureMonth,
+      departureYear
+    );
+
+    let returnDay = this.getUrlParameter("return-day");
+    let returnMonth = this.getUrlParameter("return-month");
+    let returnYear = this.getUrlParameter("return-year");
+    this.returnDate = new FlightDate(returnDay, returnMonth, returnYear);
   }
 
   getUrlParameter(parameterToFind) {
-    let pageUrl = window.location.search;
+    let pageUrl = location.search.substring(1);
     let parameterAndValues = pageUrl.split("&");
-    for (let i = 0; i < urlParamters.length; ++i) {
+    for (let i = 0; i < parameterAndValues.length; ++i) {
       let parameter = parameterAndValues[i].split("=");
       if (parameter[0] == parameterToFind) {
         return parameter[1];
@@ -35,18 +63,28 @@ class UserData {
   }
 }
 
-class GoogleMap {
-  constructor() {
-    this.map;
-    this.currentAirport;
-    this.destinationAirport;
-    // utilities
-    this.geocoder;
+class FlightDate {
+  constructor(day, month, year) {
+    this.day = day;
+    this.month = month;
+    this.year = year;
   }
+}
 
-  loadMap() {
-    let options = { zoom: 2 };
-    this.map = new GoogleMap.maps.Map(document.getElementById("map"), options);
+class GoogleMap {
+  constructor(id, centerLocation) {
+    this.mapID = id;
+    this.centerLocation = centerLocation;
+    this.map;
+
+    let options = {
+      zoom: 10,
+      center: this.centerLocation
+    };
+    this.map = new google.maps.Map(
+      document.getElementById(this.mapID),
+      options
+    );
   }
 
   addPin(pin) {
@@ -55,7 +93,7 @@ class GoogleMap {
       animation: google.maps.Animation.DROP,
       position: pin.position
     };
-    let marker = new GoogleMap.maps.Marker(parameters);
+    let marker = new google.maps.Marker(parameters);
   }
 }
 
@@ -66,37 +104,56 @@ class GooglePin {
     this.address;
     this.latitude;
     this.longitude;
-    this.positon;
+    this.position;
   }
 
   getGeocodingInfo() {
-    let url = "https://maps.googleapis.com/maps/api/geocode/json";
+    let apiUrl = "https://maps.googleapis.com/maps/api/geocode/json";
     let apiKey = "AIzaSyB8u-TY08yY4gI6sIz1nAJ3RihJNJN91fg";
-    $.get(url, { address: location, key: apiKey }, function(response) {
-      let coordinates = response.data.results[0].geometry.location;
-      let addressComponents = response.data.results[0].address_components;
+    let tempName = this.name + "+airport";
+    let parameters = { address: tempName, key: apiKey };
 
-      this.actualName = addressComponents[0].short_name;
+    var tempActualName;
+    var tempAddress;
+    var tempLatitude;
+    var tempLongitude;
+    var tempPosition;
 
-      let addrNum = addressComponents[1].short_name;
-      let addrStreet = addressComponents[2].short_name;
-      let addrCity = addressComponents[3].short_name;
-      let addrState = addressComponents[4].short_name;
-      let addrZip = addressComponents[5].short_name;
-      this.address =
-        addrNum +
-        " " +
-        addrStreet +
-        ", " +
-        addrCity +
-        ", " +
-        addrState +
-        " " +
-        addrZip;
+    $.get({
+      url: apiUrl,
+      data: parameters,
+      async: false,
+      success: function(response) {
+        let coordinates = response.results[0].geometry.location;
+        let addressComponents = response.results[0].address_components;
+        tempActualName = addressComponents[0].short_name;
+        let addrNum = addressComponents[1].short_name;
+        let addrStreet = addressComponents[2].short_name;
+        let addrCity = addressComponents[3].short_name;
+        let addrState = addressComponents[4].short_name;
+        let addrZip = addressComponents[5].short_name;
+        tempAddress =
+          addrNum +
+          " " +
+          addrStreet +
+          ", " +
+          addrCity +
+          ", " +
+          addrState +
+          " " +
+          addrZip;
 
-      this.latitude = coordinates.lat;
-      this.longitude = coordinates.lng;
-      this.positon = { lat: this.latitude, lng: this.longitude };
+        tempLatitude = coordinates.lat;
+        tempLongitude = coordinates.lng;
+        tempPosition = { lat: tempLatitude, lng: tempLongitude };
+      }
     });
+    this.actualName = tempActualName;
+    this.address = tempAddress;
+    this.latitude = tempLatitude;
+    this.longitude = tempLongitude;
+    this.position = tempPosition;
+
+    //console.log(this.position);
   }
 }

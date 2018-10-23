@@ -7,10 +7,64 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/basic.css">
-	<link rel="stylesheet" type="text/css" href="../css/home.css">
+	<link rel="stylesheet" type="text/css" href="../css/result.css">
 </head>
 
 <body>
+	<div class="parallax-container">
+		<div class="header">
+			<nav class="transparent z-depth-0">
+				<div class="nav-wrapper">
+					<a href="../index.html" class="brand-logo">Travel Guide</a>
+					<a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="../html/home.html">Home</a></li>
+						<li><a href="../html/about.html">About</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			<ul class="sidenav grey darken-1" id="mobile-demo">
+				<li><a class="white-text" href="../html/home.html">Home</a></li>
+				<li><a class="white-text" href="../html/about.html">About</a></li>
+			</ul>
+		</div>
+		<div class="jumbotron">
+			<div class="page-title">
+				<h1 class="white-text">Did we find what you where looking for?</h1>
+				<h5 class="white-text">If the results are not what you are looking for, please go back and re-enter the
+					information.</h5>
+				<a id="retry-button" class="waves-effect waves-light btn-large grey darken-1" href="./home.html">Retry Search</a>
+			</div>
+		</div>
+		<div class="parallax">
+			<img src="../images/city_background_2.jpg">
+		</div>
+	</div>
+	<div class="container">
+		<div class="section">
+			<h3 id="current-city">Departure City - </h3>
+			<div id="current-city-map"></div>
+		</div>
+	</div>
+
+	<div class="parallax-container">
+		<div class="jumbotron">
+			<h3 class="white-text">Placeholder</h3>
+
+		</div>
+		<div class="parallax">
+			<img src="../images/city_background.jpg" alt="Unsplashed background img 2">
+		</div>
+	</div>
+
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8u-TY08yY4gI6sIz1nAJ3RihJNJN91fg"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../materialize/javascript/materialize.min.js"></script>
+	<script src="../javascript/navbar.js"></script>
+	<script src="../javascript/result.js"></script>
 
 </body>
 

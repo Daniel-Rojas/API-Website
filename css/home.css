@@ -6,12 +6,6 @@ body {
   background-size: cover;
 }
 
-#jumbotron {
-  border-radius: 5px;
-  background-color: white;
-  opacity: 0.9;
-}
-
 #home-form {
   text-align: center;
   padding: 5% 10%;
