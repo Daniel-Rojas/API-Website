@@ -6,22 +6,34 @@ $(document).ready(function() {
   userData.getData();
 
   document.getElementById("current-city").innerHTML += userData.currentCity;
+  loadCurrentMap(userData.currentCity);
 
+  document.getElementById("destination-city").innerHTML +=
+    userData.destinationCity;
+  loadDestinationMap(userData.destinationCity);
+});
+
+function loadCurrentMap(currentCity) {
   let currentMap = new GoogleMap("current-city-map", {
     lat: -34.397,
     lng: 150.644
   });
-  let currentPin = new GooglePin(userData.currentCity);
+  let currentPin = new GooglePin(currentCity);
   currentPin.getGeocodingInfo();
   currentMap.addPin(currentPin);
   currentMap.map.setCenter(currentPin.position);
+}
 
-  /*let destinationPin = new GooglePin(userData.destinationCity);
+function loadDestinationMap(destinationCity) {
+  let destinationMap = new GoogleMap("destination-city-map", {
+    lat: -34.397,
+    lng: 150.644
+  });
+  let destinationPin = new GooglePin(userData.destinationCity);
   destinationPin.getGeocodingInfo();
-  let destinationMap = new GoogleMap();
-  destinationMap.loadMap();
-  destinationMap.addPin(destinationPin);*/
-});
+  destinationMap.addPin(destinationPin);
+  destinationMap.map.setCenter(destinationPin.position);
+}
 
 class UserData {
   constructor() {
