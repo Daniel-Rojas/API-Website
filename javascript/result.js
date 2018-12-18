@@ -7,13 +7,16 @@ $(document).ready(function() {
   let userData = new FormData();
   userData.getDataFromUrl();
 
-  document.getElementById("current-city").innerHTML +=
-    userData.currentCity.cityName;
-  loadCurrentMap(userData.currentCity.cityName);
+  let currentCity = userData.currentCity.cityName;
+  let destinationCity = userData.destinationCity.cityName;
 
-  document.getElementById("destination-city").innerHTML +=
-    userData.destinationCity.cityName;
-  loadDestinationMap(userData.destinationCity.cityName);
+  document.getElementById("current-city").innerHTML += currentCity;
+  loadCurrentMap(currentCity);
+  loadCurrentForecast(currentCity);
+
+  document.getElementById("destination-city").innerHTML += destinationCity;
+  loadDestinationMap(destinationCity);
+  loadDestinationForecast(destinationCity);
 });
 
 function loadCurrentMap(currentCity) {
@@ -28,11 +31,21 @@ function loadCurrentMap(currentCity) {
 }
 
 function loadCurrentForecast(currentCity) {
-  let currentCityWeather = WeeklyForecast(currentCity);
+  let currentCityWeather = new WeeklyForecast(currentCity);
   currentCityWeather.getWeatherForecast();
 
-  for (let i = 0; i < currentCityWeather.forecast.length(); i++) {
-    // set html values
+  for (let i = 0; i < currentCityWeather.forecast.length; i++) {
+    document.getElementById("cur-condition-day" + i.toString()).innerHTML =
+      currentCityWeather.forecast[i].condition;
+    document.getElementById("cur-high-day" + i.toString()).innerHTML +=
+      currentCityWeather.forecast[i].maxTemperature;
+    document.getElementById("cur-low-day" + i.toString()).innerHTML +=
+      currentCityWeather.forecast[i].minTemperature;
+    document.getElementById("cur-precip-day" + i.toString()).innerHTML +=
+      currentCityWeather.forecast[i].precipitation;
+    document.getElementById("cur-wind-day" + i.toString()).innerHTML +=
+      currentCityWeather.forecast[i].windSpeed +
+      currentCityWeather.forecast[i].windDirection;
   }
 }
 
@@ -65,6 +78,7 @@ class WeeklyForecast {
 
     $.get({
       url: apiUrl,
+      xhrFields: { withCredentials: true },
       data: parameters,
       async: false,
       success: function(response) {
@@ -86,6 +100,7 @@ class WeeklyForecast {
 
     $.get({
       url: apiUrl,
+      xhrFields: { withCredentials: true },
       data: parameters,
       async: false,
       success: function(response) {
