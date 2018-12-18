@@ -70,7 +70,7 @@ class WeeklyForecast {
   }
 
   getLocationKey() {
-    let apiUrl = "http://dataservice.accuweather.com/locations/v1/search";
+    let apiUrl = "https://dataservice.accuweather.com/locations/v1/search";
     let apiKey = "tCZnjOflxGgwGubWXbpj3yhbOS2kZXdZ";
     let parameters = { apiKey: apiKey, q: this.location };
 
@@ -90,7 +90,7 @@ class WeeklyForecast {
 
   getWeatherForecast() {
     let apiUrl =
-      "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
+      "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
       this.locationKey;
     let apiKey = "tCZnjOflxGgwGubWXbpj3yhbOS2kZXdZ";
     let details = "true";
