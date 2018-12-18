@@ -2,17 +2,18 @@ $(document).ready(function() {
   $("select").formSelect();
   $(".parallax").parallax();
 
+  //  let userData = new UserData();
+  //  userData.getData();
   let userData = new FormData();
   userData.getDataFromUrl();
 
-  document.getElementById("current-city").innerHTML += userData.currentCity;
-  loadCurrentMap(userData.currentCity);
-  //loadCurrentForecast(userData.currentCity.cityName);
+  document.getElementById("current-city").innerHTML +=
+    userData.currentCity.cityName;
+  loadCurrentMap(userData.currentCity.cityName);
 
   document.getElementById("destination-city").innerHTML +=
-    userData.destinationCity;
-  loadDestinationMap(userData.destinationCity);
-  //loadDestinationForecast(userData.destinationCity.cityName);
+    userData.destinationCity.cityName;
+  loadDestinationMap(userData.destinationCity.cityName);
 });
 
 function loadCurrentMap(currentCity) {
@@ -26,30 +27,27 @@ function loadCurrentMap(currentCity) {
   currentMap.map.setCenter(currentPin.position);
 }
 
+function loadCurrentForecast(currentCity) {
+  let currentCityWeather = WeeklyForecast(currentCity);
+  currentCityWeather.getWeatherForecast();
+
+  for (let i = 0; i < currentCityWeather.forecast.length(); i++) {
+    // set html values
+  }
+}
+
 function loadDestinationMap(destinationCity) {
   let destinationMap = new GoogleMap("destination-city-map", {
     lat: -34.397,
     lng: 150.644
   });
-  console.log("HERE");
   let destinationPin = new GooglePin(destinationCity);
   destinationPin.getGeocodingInfo();
   destinationMap.addPin(destinationPin);
   destinationMap.map.setCenter(destinationPin.position);
 }
 
-function loadCurrentForecast(currentCity) {
-  let currentCityWeather = WeeklyForecast(currentCity);
-  currentCityWeather.getWeatherForecast();
-  for (let i = 0; i < currentCityWeather.forecast.length(); i++) {
-    // set html values
-  }
-
-}
-
-function loadDestinationForecast(destinationCity) {
-
-}
+function loadDestinationForecast(destinationCity) {}
 
 class WeeklyForecast {
   constructor(location) {
@@ -77,10 +75,12 @@ class WeeklyForecast {
   }
 
   getWeatherForecast() {
-    let apiUrl = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + this.locationKey;
+    let apiUrl =
+      "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
+      this.locationKey;
     let apiKey = "tCZnjOflxGgwGubWXbpj3yhbOS2kZXdZ";
     let details = "true";
-    let parameters = { apiKey: apiKey, details: details }
+    let parameters = { apiKey: apiKey, details: details };
 
     var tempForecast = [];
 
@@ -102,7 +102,7 @@ class WeeklyForecast {
 }
 
 class DayForecast {
-  constructor() { 
+  constructor() {
     this.date;
     this.condition;
     this.icon;

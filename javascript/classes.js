@@ -16,8 +16,7 @@ class FormDate {
     if (dateType == "departure" || dateType == "return") {
       dayString = dateType + dayString;
       this.day = document.forms["input-form"][dayString].value;
-    }
-    else {
+    } else {
       throw "Error: GetFormDay received invalid parameter";
     }
   }
@@ -27,8 +26,7 @@ class FormDate {
     if (dateType == "departure" || dateType == "return") {
       monthString = dateType + monthString;
       this.month = document.forms["input-form"][monthString].value;
-    }
-    else {
+    } else {
       throw "Error: GetFormMonth received invalid parameter";
     }
   }
@@ -38,13 +36,11 @@ class FormDate {
     if (dateType == "departure" || dateType == "return") {
       yearString = dateType + yearString;
       this.year = document.forms["input-form"][yearString].value;
-    }
-    else {
+    } else {
       throw "Error: GetFormYear received invalid parameter";
     }
   }
 }
-
 
 class FormCity {
   constructor() {
@@ -57,14 +53,12 @@ class FormCity {
     if (cityType == "current" || cityType == "destination") {
       cityString = cityType + cityString;
       this.cityName = document.forms["input-form"][cityString].value;
-    }
-    else {
+    } else {
       // throws error if city type is an invalid type
       throw "Error: retrieveCityData received invalid parameter";
     }
   }
 }
-
 
 class FormData {
   constructor() {
@@ -95,20 +89,17 @@ class FormData {
     let validationMessage = "";
     // checks if cities are not the same
     if (this.currentCity.cityName == this.destinationCity.cityName) {
-      validationMessage = "Current city and Destination city must be different.";
-    }
-    else {
+      validationMessage =
+        "Current city and Destination city must be different.";
+    } else {
       // checks for departure date earlier than return date
       if (this.departureDate.year > this.returnDate.year) {
         validationMessage = "Return year must be later that departure year.";
-      }
-      else if (this.departureDate.month > this.returnDate.month) {
+      } else if (this.departureDate.month > this.returnDate.month) {
         validationMessage = "Return month must be later that departure month.";
-      }
-      else if (this.departureDate.day > this.returnDate.day) {
+      } else if (this.departureDate.day > this.returnDate.day) {
         validationMessage = "Return day must be later that departure day.";
-      }
-      else {
+      } else {
         isValid = true;
       }
     }
@@ -117,24 +108,20 @@ class FormData {
   }
 
   getDataFromUrl() {
-    this.currentCity = this.getUrlParameter("current-city");
-    this.destinationCity = this.getUrlParameter("destination-city");
+    this.currentCity = new FormCity();
+    this.destinationCity = new FormCity();
+    this.currentCity.cityName = this.getUrlParameter("current-city");
+    this.destinationCity.cityName = this.getUrlParameter("destination-city");
 
-    let departureDay = this.getUrlParameter("departure-day");
-    let departureMonth = this.getUrlParameter("departure-month");
-    let departureYear = this.getUrlParameter("departure-year");
     this.departureDate = new FormDate();
-    this.departureDate.day = departureDay;
-    this.departureDate.month = departureMonth;
-    this.departureDate.year = departureYear;
+    this.departureDate.day = this.getUrlParameter("departure-day");
+    this.departureDate.month = this.getUrlParameter("departure-month");
+    this.departureDate.year = this.getUrlParameter("departure-year");
 
-    let returnDay = this.getUrlParameter("return-day");
-    let returnMonth = this.getUrlParameter("return-month");
-    let returnYear = this.getUrlParameter("return-year");
     this.returnDate = new FormDate();
-    this.returnDate.day = returnDay;
-    this.returnDate.month = returnMonth;
-    this.returnDate.year = returnYear;
+    this.returnDate.day = this.getUrlParameter("return-day");
+    this.returnDate.month = this.getUrlParameter("return-month");
+    this.returnDate.year = this.getUrlParameter("return-year");
   }
 
   getUrlParameter(parameterToFind) {
@@ -149,7 +136,6 @@ class FormData {
     return "N/A";
   }
 }
-
 
 class GoogleMap {
   constructor(id, centerLocation) {
@@ -176,7 +162,6 @@ class GoogleMap {
     let marker = new google.maps.Marker(parameters);
   }
 }
-
 
 class GooglePin {
   constructor(name) {
